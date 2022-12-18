@@ -43,7 +43,8 @@ def convert(message: telebot.types.Message):
         url = (f'https://api.apilayer.com/fixer/convert?to={keys[quote]}&from={keys[base]}&amount={amount}')
         r = requests.request("GET", url, headers={"apikey": "d9bxLmk3jhTHrcMuQtAEiTieVW7U77pf"})
         total = json.loads(r.content)
-        text = f'Цена {amount} {quote} в {base} - {total}'
+        result = total['result']
+        text = f'Цена {amount} {quote} в {base} - {result}'
         bot.send_message(message.chat.id, text)
 
 
