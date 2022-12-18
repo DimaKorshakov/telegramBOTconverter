@@ -1,4 +1,4 @@
-﻿from confing import keys
+from confing import keys
 
 
 class ConversionException(Exception):
@@ -7,7 +7,7 @@ class ConversionException(Exception):
 
 class MoneyConverter:
     @staticmethod
-    def convert(quote: str, base: str, amount: str):
+    def convert(amount: str, quote: str, base: str):
         if quote == base:
             raise ConversionException(f'Невозможно перевести одинаковые валюты {base}.')
 
